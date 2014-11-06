@@ -1,0 +1,41 @@
+﻿<Window x:Class="CRUD_App.GridData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GridData" Height="378" Width="480">
+    <Grid>
+
+        <DataGrid HorizontalAlignment="Left"
+                  AutoGenerateColumns="False"
+                  ItemsSource="{Binding}" 
+                  VerticalAlignment="Top"
+                  Name="gridDemo"
+                 
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding id, NotifyOnTargetUpdated=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Header="Employee ID" IsReadOnly="True" />
+                <DataGridTextColumn Binding="{Binding name, NotifyOnTargetUpdated=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Header="Name"/>
+                <DataGridTextColumn Binding="{Binding age, NotifyOnTargetUpdated=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Header="Age"/>
+                <DataGridTextColumn Binding="{Binding company, NotifyOnTargetUpdated=True,Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="100" Header="Company"/>
+                <DataGridTemplateColumn Header="Edit">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Update"  Click="btnEdit_Click" CommandParameter="{Binding id}"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                
+                <DataGridTemplateColumn Header="Action">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Delete" x:Name="btnDelete"
+                                Click="btnDelete_Click" Command="{Binding id}" Background="Red" Foreground="White"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                    
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

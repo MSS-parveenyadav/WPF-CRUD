@@ -1,0 +1,61 @@
+﻿<Window x:Class="CRUD_App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="457" Width="540.95">
+    <Grid>
+        
+        <StackPanel Name="placeholder">
+            
+            <!--Create Template for validation -->
+            <Button>
+                <ControlTemplate x:Name="CustomTemplateValidator">
+                    <DockPanel>
+                        <TextBlock Foreground="Red" 
+            DockPanel.Dock="Top">!</TextBlock>
+                        <AdornedElementPlaceholder 
+           x:Name="ErrorAdorner"
+        ></AdornedElementPlaceholder>
+                    </DockPanel>
+                </ControlTemplate>    
+            </Button>
+            
+            <!--End validation Template here-->
+            
+            
+            
+            <StackPanel  HorizontalAlignment="Left" Width="520">
+                <TextBlock Foreground="Green" FontSize="30" Name="lblMsg"></TextBlock>
+                <TextBlock FontSize="30">Name :</TextBlock>
+                <TextBox  HorizontalAlignment="Right" Width="200" VerticalAlignment="Top" Margin="0,-30,50,0" Height="40" Name="txtName">
+
+                    <!--<TextBox.Text>
+                        <Binding Path="Name" Mode="TwoWay" 
+        UpdateSourceTrigger="LostFocus">
+                            <Binding.ValidationRules>
+                               
+                                --><!--<local:CustomValidator></local:CustomValidator>--><!--
+                            </Binding.ValidationRules>
+                        </Binding>
+                    </TextBox.Text>-->
+
+                </TextBox>
+           
+            
+            
+            </StackPanel>
+            <StackPanel  HorizontalAlignment="Left" Width="520">
+                <TextBlock FontSize="30">Age :</TextBlock>
+                <TextBox  HorizontalAlignment="Right" Width="200" VerticalAlignment="Top" Margin="0,-30,50,0" Height="40" Name="txtAge"></TextBox>
+            </StackPanel>
+            <StackPanel  HorizontalAlignment="Left" Width="520">
+                <TextBlock FontSize="30">Company :</TextBlock>
+                <TextBox   HorizontalAlignment="Right" Width="200" VerticalAlignment="Top"  Margin="0,-30,50,0" Height="40" Name="txtCompany"></TextBox>
+            </StackPanel>
+            <StackPanel  HorizontalAlignment="Left" Width="520">
+                <Button Height="60" FontSize="40" Width="200" Margin="220,40,0,0" Click="Button_Click">Submit</Button>
+                <Button Height="60" Background="Blue" Foreground="White" FontSize="40" Width="200" Margin="20,-60,0,0" Click="Show_Grid" HorizontalAlignment="Left">Show Grid</Button>
+            </StackPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>
